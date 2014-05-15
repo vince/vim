@@ -1,3 +1,9 @@
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=62 columns=200
+endif
+
 set go-=T
 set bg=dark
 if &background == "dark"
@@ -5,7 +11,7 @@ if &background == "dark"
 endif
 colorscheme desert
 
-cd ~/Sites/
+cd ~/Work/
 
  " Set encoding
  set encoding=utf-8
@@ -15,9 +21,15 @@ set ruler
 set hlsearch
 syntax on
 
-#au VimEnter * :NERDTree
-
+" Uncomment to start NERDTree on launch
+" au VimEnter * :NERDTree
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+nmap <C-t> :tabnew<CR>
+nmap <C-w> :close<CR>
+nmap <C-q> :qa<CR>
+
+
+
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 behave xterm
